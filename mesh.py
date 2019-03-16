@@ -10,7 +10,7 @@ class Mesh:
         vertices, faces, normals, texcoords = io.read_mesh(obj_filename)
         assert len(vertices[0]) == 3, "Vertices r 3D"
         assert len(faces[0]) == 3, "Mesh must be triangulated"
-        self.vertices = vertices
+        self.vertices = vertices - np.mean(vertices, axis=0)
         self.faces = faces
         self.position = position
         self.rotation = rotation
