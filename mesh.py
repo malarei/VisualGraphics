@@ -35,12 +35,5 @@ class Mesh:
             rym =tr.rotate(ry, [0,1,0]).T
             rzm =tr.rotate(rz, [0,0,1]).T
             trm = tr.translate(self.position).T
-            mm = trm @ rxm @rym @rzm @ sm
+            mm = trm @ rxm @ rym @ rzm @ sm
             return mm
-
-monkey = Mesh('monkey.obj', position=[1, 2, 3], rotation=[0, 90, 45], scale=[3,3,3])
-print(monkey.model_matrix)
-
-
-mm = make_model_matrix([2,6,8], [0, 90, 45], [3,3,3])
-print(mm)
